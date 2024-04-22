@@ -30,11 +30,23 @@ function Filter() {
   }
   return (
     <div className="flex">
-      <Search
+      {/* <Search
+        // placeholder="input search text"
+        allowClear
+        enterButton="Search"
+        size="large"
         onSearch={(value) => {
           dispatch(searchJobs(value));
         }}
+      /> */}
+      <Search
+        placeholder="input search text"
+        onSearch={(value) => {
+          dispatch(searchJobs(value));
+        }}
+        enterButton="Filter"
       />
+
       <FilterOutlined onClick={showModal} />
 
       <Modal

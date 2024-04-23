@@ -7,16 +7,16 @@ export const registerUser = (values) => async (dispatch) => {
   try {
     await axios.post("/api/users/register", values);
     dispatch({ type: "LOADING", payload: false });
-    message.success("User Created Successfully!");
+    message.success("User Created Successfully");
     setTimeout(() => {
       window.location.href = "/login";
     }, 1500);
   } catch (error) {
     console.log(error.response.data.error);
     if (error.response.data.error === "Username already taken") {
-      message.error("Username Already Taken, Please Choose Another One");
+      message.error("Username Already Taken, Please Choose Another");
     } else {
-      message.error("Something went wrong , please try again later");
+      message.error("Something Went Wrong , Please Try Again Later");
     }
     dispatch({ type: "LOADING", payload: false });
   }
@@ -28,7 +28,7 @@ export const loginUser = (values) => async (dispatch) => {
   try {
     const user = await axios.post("/api/users/login", values);
     dispatch({ type: "LOADING", payload: false });
-    message.success("Login Successful!");
+    message.success("Login Successful, Redirecting");
     localStorage.setItem("user", JSON.stringify(user.data));
     setTimeout(() => {
       window.location.href = "/";
@@ -47,13 +47,13 @@ export const updateUser = (values) => async (dispatch) => {
   try {
     const user = await axios.post("/api/users/update", values);
     dispatch({ type: "LOADING", payload: false });
-    message.success("User Updated Successfully!");
+    message.success("User Updated Successfully");
     localStorage.setItem("user", JSON.stringify(user.data));
     setTimeout(() => {
       window.location.reload();
     }, 1500);
   } catch (error) {
-    message.error("Something went wrong , please try again later");
+    message.error("Something Went Wrong , Please Try Again Later");
     dispatch({ type: "LOADING", payload: false });
   }
 };

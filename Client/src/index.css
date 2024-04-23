@@ -127,11 +127,20 @@ p {
   padding-top: 130px;
   background-color: white !important;
 }
+.login-input {
+  border: none;
+}
 
 input,
 textarea {
   border: 1px solid #001529 !important;
   box-shadow: none !important;
+}
+
+.select {
+  border: 1px solid #001529 !important;
+  box-shadow: none !important;
+  border-radius: 7px !important;
 }
 
 .ant-message {

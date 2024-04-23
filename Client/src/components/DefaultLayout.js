@@ -105,6 +105,9 @@ const DefaultLayout = ({ children }) => {
             <div>
               <h4 style={{ marginRight: "25px" }}>
                 <b>{username}</b>
+                <Link onClick={logout}>
+                  <LogoutOutlined />
+                </Link>
               </h4>
             </div>
           </div>

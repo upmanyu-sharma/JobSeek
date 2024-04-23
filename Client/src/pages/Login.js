@@ -22,14 +22,17 @@ function Login() {
               name="username"
               rules={[{ required: true }]}
             >
-              <Input />
+              <Input style={{ width: "520px", borderRadius: "6px" }} />
             </Form.Item>
             <Form.Item
               label="Password"
               name="password"
               rules={[{ required: true }]}
             >
-              <Input />
+              <Input
+                type="password"
+                style={{ width: "520px", borderRadius: "6px" }}
+              />
             </Form.Item>
             <Button
               htmlType="submit"

@@ -8,7 +8,7 @@ function Register() {
 
   function register(values) {
     if (values.password !== values.confirmpassword) {
-      message.error("Passwords do not match. Please try again!");
+      message.error("Passwords do not match, Please try again");
     } else {
       console.log(values);
       dispatch(registerUser(values));
@@ -29,21 +29,27 @@ function Register() {
               name="username"
               rules={[{ required: true }]}
             >
-              <Input />
+              <Input style={{ width: "520px", borderRadius: "6px" }} />
             </Form.Item>
             <Form.Item
               label="Password"
               name="password"
               rules={[{ required: true }]}
             >
-              <Input />
+              <Input
+                type="password"
+                style={{ width: "520px", borderRadius: "6px" }}
+              />
             </Form.Item>
             <Form.Item
               label="Confirm Password"
               name="confirmpassword"
               rules={[{ required: true }]}
             >
-              <Input />
+              <Input
+                type="password"
+                style={{ width: "520px", borderRadius: "6px" }}
+              />
             </Form.Item>
             <Button
               htmlType="submit"

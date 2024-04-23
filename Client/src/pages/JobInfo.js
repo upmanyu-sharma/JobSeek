@@ -10,61 +10,62 @@ function JobInfo() {
 
   const jobsData = useSelector((state) => state.JobsReducer);
   const jobs = jobsData.jobs;
-  const job = jobs.find((job) => job._id === id);
-  console.log(job);
+  const currjob = jobs.find((job) => job._id === id);
 
   const userData = localStorage.getItem("user");
   const userID = JSON.parse(userData)._id;
-  const jobPostedBy = job.postedBy;
+  const jobPostedBy = currjob.postedBy;
 
   const dispatch = useDispatch();
+
   function applyjob() {
-    dispatch(applyJob(job));
+    dispatch(applyJob(currjob));
   }
 
-  const appliedCandidates = job.appliedCandidates;
+  const appliedCandidates = currjob.appliedCandidates;
   const alreadyApplied = appliedCandidates.find(
     (candidate) => candidate.userId === userID
   );
   return (
     <>
       <DefaultLayout>
-        {job && (
+        {currjob && (
           <div>
             <p>
-              <b>Company</b> : {job.company}
+              <b>Company</b> : {currjob.company}
             </p>
             <p>
-              <b>Company Profile</b> : {job.companyDescription}
+              <b>Company Profile</b> : {currjob.companyDescription}
             </p>
             <p>
-              <b>Department</b> : {job.department}
+              <b>Department</b> : {currjob.department}
             </p>
             <hr />
             <p>
-              <b>Designation</b> : {job.title}
+              <b>Designation</b> : {currjob.title}
             </p>
             <p>
-              <b>Job Description</b> : {job.fullDescription}
+              <b>Job Description</b> : {currjob.fullDescription}
             </p>
 
             <p>
-              <b>Skills Required</b> : {job.skillsRequired}
+              <b>Skills Required</b> : {currjob.skillsRequired}
             </p>
             <p>
-              <b>Min Experience Required</b> : {job.experience}
+              <b>Min Experience Required</b> : {currjob.experience}
             </p>
             <p>
               <b>Minimum Qualification Required </b> :{" "}
-              {job.minimumQualification}
+              {currjob.minimumQualification}
             </p>
 
             <p>
-              <b>Salary Range</b> : {job.salaryFrom} - {job.salaryTo}
+              <b>Salary Range</b> : {currjob.salaryFrom} - {currjob.salaryTo}
             </p>
             <hr />
             <p>
-              <b>Total Candidates applied</b> : {job.appliedCandidates.length}
+              <b>Total Candidates applied</b> :{" "}
+              {currjob.appliedCandidates.length}
             </p>
 
             <hr />
@@ -73,7 +74,7 @@ function JobInfo() {
               {userID === jobPostedBy ? (
                 <Button className="view-btn">
                   <Link
-                    to={`/editjob/${job._id}`}
+                    to={`/editjob/${currjob._id}`}
                     style={{ textDecoration: "none" }}
                   >
                     Edit Job
@@ -82,11 +83,13 @@ function JobInfo() {
               ) : alreadyApplied ? (
                 <Tag color="blue">Already Applied</Tag>
               ) : (
-                <Button onClick={applyJob} className="view-btn">
+                <Button onClick={applyjob} className="view-btn">
                   Apply Now
                 </Button>
               )}
-              <p>Posted on : {moment(job.createdAt).format("MMMM Do YYYY")}</p>
+              <p>
+                Posted on : {moment(currjob.createdAt).format("MMMM Do YYYY")}
+              </p>
             </div>
           </div>
         )}

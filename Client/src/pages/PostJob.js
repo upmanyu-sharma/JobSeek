@@ -95,7 +95,7 @@ function PostJob() {
                     rules={[{ required: true }]}
                     label="Minimum Qualification"
                   >
-                    <Select>
+                    <Select className="select">
                       <Option value="Graduate">Graduate</Option>
                       <Option value="12th">12th</Option>
                       <Option value="10th">10th</Option>

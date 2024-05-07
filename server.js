@@ -14,9 +14,9 @@ app.use("/api/jobs", jobsRoute);
 app.use("/api/users", userRoute);
 
 // deployment code
-app.use(express.static(path.join(__dirname, "./client/build")));
+app.use(express.static(path.join(__dirname, "./Client/build")));
 app.get("*", function (req, res) {
-  res.sendFile(path.resolve(__dirname, "./client/build/index.html"));
+  res.sendFile(path.resolve(__dirname, "./Client/build/index.html"));
 });
 
 //deployment code

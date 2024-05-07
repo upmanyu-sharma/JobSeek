@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const db = require("./db.js");
 const jobsRoute = require("./Routes/jobsRoute.js");
 const userRoute = require("./Routes/userRoute.js");
@@ -11,3 +12,12 @@ app.use(express.json());
 
 app.use("/api/jobs", jobsRoute);
 app.use("/api/users", userRoute);
+
+// deployment code
+const __dirname1 = path.resolve();
+app.use(express.static(path.join(__dirname1, "/client/build")));
+app.get("*", function (req, res) {
+  res.sendFile(path.resolve(__dirname1, "client", "build", "index.html"));
+});
+
+//deployment code

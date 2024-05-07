@@ -12,7 +12,7 @@ function UserInfo() {
         {user && (
           <div>
             <h3>
-              <b>Personal inforamtion</b>
+              <b>Applied Candidate's Information</b>
             </h3>
             <p>
               <b>First name : </b>

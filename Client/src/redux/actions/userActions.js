@@ -34,7 +34,7 @@ export const loginUser = (values) => async (dispatch) => {
       window.location.href = "/";
     }, 1500);
   } catch (error) {
-    message.error("Invalid Credentials");
+    message.error(error.response.data.error);
     dispatch({ type: "LOADING", payload: false });
   }
 };

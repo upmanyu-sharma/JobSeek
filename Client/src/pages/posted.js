@@ -21,6 +21,8 @@ function Posted() {
     return job.postedBy === userID;
   });
 
+  // console.log(userPostedJobs);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedJob, setSelectedJob] = useState();
 
@@ -54,7 +56,7 @@ function Posted() {
             />
             <OrderedListOutlined
               style={{ fontSize: "17px", marginLeft: "0px" }}
-              onClick={() => showModal(job)}
+              onClick={() => showModal(data.completeJobData)}
             />
           </div>
         );
@@ -78,6 +80,7 @@ function Posted() {
   const showModal = (job) => {
     setIsModalOpen(true);
     setSelectedJob(job);
+    console.log(job);
   };
   const handleOk = () => {
     setIsModalOpen(false);
@@ -87,6 +90,7 @@ function Posted() {
   };
 
   function CandidatesList() {
+    console.log("data");
     const candidatesColumns = [
       {
         title: "Candidate Id",

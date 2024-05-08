@@ -78,7 +78,7 @@ function Posted() {
   const showModal = (job) => {
     setIsModalOpen(true);
     setSelectedJob(job);
-    console.log(job);
+    // console.log(job);
   };
   const handleOk = () => {
     setIsModalOpen(false);

@@ -36,7 +36,7 @@ router.post("/editjob", async (req, res) => {
 
 router.post("/applyjob", async (req, res) => {
   const { currjob, user } = req.body;
-  console.log("job posted by = " + currjob.postedBy);
+  // console.log("job posted by = " + currjob.postedBy);
   try {
     const currJob = await Job.findOne({ _id: currjob._id });
 

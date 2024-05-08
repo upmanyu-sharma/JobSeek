@@ -13,15 +13,13 @@ function Posted() {
   const usersData = useSelector((state) => state.usersReducer);
   const allUsers = usersData.users;
 
-  const userID = JSON.parse(localStorage.getItem("user"))._id;
+  const userID = JSON.parse(localStorage.getItem("user"))._id; //curr user id
 
   const navigate = useNavigate();
 
   const userPostedJobs = allJobs.filter((job) => {
     return job.postedBy === userID;
   });
-
-  // console.log(userPostedJobs);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedJob, setSelectedJob] = useState();

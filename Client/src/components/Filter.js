@@ -65,12 +65,12 @@ function Filter() {
 
           <Form.Item name="salary" label="Salary">
             <Select>
-              <Option value={10000}>10000+</Option>
-              <Option value={15000}>15000+</Option>
-              <Option value={25000}>25000+</Option>
-              <Option value={35000}>35000+</Option>
-              <Option value={50000}>50000+</Option>
-              <Option value={70000}>70000+</Option>
+              <Option value={1000000}>1000000+</Option>
+              <Option value={1500000}>1500000+</Option>
+              <Option value={2500000}>2500000+</Option>
+              <Option value={3500000}>3500000+</Option>
+              <Option value={5000000}>5000000+</Option>
+              <Option value={7000000}>7000000+</Option>
             </Select>
           </Form.Item>
           <Button htmlType="submit">Filter</Button>

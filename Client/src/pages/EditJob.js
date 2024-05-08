@@ -19,7 +19,7 @@ function EditJob() {
   }
   let { id } = useParams();
   function onFinalFormFinish(values) {
-    const finalObj = { ...jobInfo, ...values };
+    const finalObj = { ...jobInfo, ...values }; //jobinfo is for 1st page details and values for 2nd page
     finalObj._id = id;
     finalObj._id = dispatch(editJob(finalObj));
   }
